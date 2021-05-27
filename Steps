@@ -1,0 +1,8 @@
+Step 1: Make connection to storage and bigquery
+step 2: Use bigquery to get data from a public dataset
+step 3: Save that query o/p to cloud bucket as csv.
+step 4: Create a big table
+step 5: Store that public data o/p in our table
+step 6: Read the excel file data from bucket 
+step 7: Perform transformations
+step 8: Store the o/p in a new bucket and a new table
