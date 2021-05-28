@@ -38,7 +38,7 @@ def plotting(para1,para2):
 import pandas as pd
 from google.cloud import storage
 from google.cloud import bigquery
-from google.cloud import bigquery_storage
+#from google.cloud import bigquery_storage
 import time
 import sys
 import warnings
@@ -48,7 +48,7 @@ import seaborn as sns
 
 import os
 warnings.filterwarnings('ignore')
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"]=r"C:\Users\Deepak Agrawal\Downloads\effective-forge-313405-369ac9d9c5b1.json"
+#os.environ["GOOGLE_APPLICATION_CREDENTIALS"]=r"C:\Users\Deepak Agrawal\Downloads\effective-forge-313405-369ac9d9c5b1.json"
 try:
     bqclient,store_client = connections()
 except:
@@ -88,10 +88,10 @@ except:
     print("Creating a new Bucket...........")
     bucket=CreatingBucket(store_client,name)
     print("New Bucket Created: {}".format(bucket.name))
-data.to_csv("Reddit_words.csv")
+data.to_csv('Reddit_words.csv')
 try:
     blob=bucket.blob('Reddit_words.csv')
-    with open("Reddit_words.csv","rb") as r:
+    with open('Reddit_words.csv',"rb") as r:
         blob.upload_from_file(r)
 except Exception as e:
     print(e)
@@ -122,7 +122,8 @@ try:
     blob=bucket.get_blob("Reddit_words.csv")
     from io import StringIO
     st=blob.download_as_string()
-    data1=pd.read_csv(StringIO(str(st,"utf-8")))
+    data1=pd.read_csv(StringIO(str(st,encoding='utf-8')))
+   # data1=pd.read_csv(StringIO(str))
 except Exception as e:
     print(e)
     exit(0)
