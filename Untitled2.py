@@ -48,7 +48,7 @@ import seaborn as sns
 
 import os
 warnings.filterwarnings('ignore')
-#os.environ["GOOGLE_APPLICATION_CREDENTIALS"]=r"C:\Users\Deepak Agrawal\Downloads\effective-forge-313405-369ac9d9c5b1.json"
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"]=r"C:\Users\Deepak Agrawal\Downloads\effective-forge-313405-369ac9d9c5b1.json"
 try:
     bqclient,store_client = connections()
 except:
